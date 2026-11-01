@@ -1,0 +1,53 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="DFD-2 Приём и ведение медицинской карты" id="dfd2">
+    <mxGraphModel dx="1201" dy="811" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;fontSize=16;fontStyle=1;align=left;verticalAlign=middle;" value="DFD2. Приём пациента и ведение медицинской карты (as-is + рекомендуемые меры защиты)" vertex="1">
+          <mxGeometry height="30" width="1000" x="200" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="patient" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Пациент" vertex="1">
+          <mxGeometry height="80" width="160" x="350" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="p2" parent="1" style="rounded=1;arcSize=30;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" value="P2&#xa;Приём и оформление&#xa;медицинской карты (Врач)" vertex="1">
+          <mxGeometry height="80" width="220" x="320" y="231" as="geometry" />
+        </mxCell>
+        <mxCell id="d2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" value="D2&#xa;Медицинская карта&#xa;(Excel/скан, история болезни)" vertex="1">
+          <mxGeometry height="90" width="260" x="300" y="371" as="geometry" />
+        </mxCell>
+        <mxCell id="d3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" value="D3&#xa;Общий диск&#xa;(файловый сервер, без шифрования)" vertex="1">
+          <mxGeometry height="90" width="260" x="300" y="511" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=10;exitX=0.564;exitY=1.034;exitDx=0;exitDy=0;entryX=0.544;entryY=-0.042;entryDx=0;entryDy=0;exitPerimeter=0;entryPerimeter=0;" target="p2">
+          <mxGeometry relative="1" x="-0.6725" as="geometry">
+            <mxPoint x="440.2399999999999" y="163.32000000000002" as="sourcePoint" />
+            <mxPoint x="439.67999999999995" y="229.99999999999997" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e1label" connectable="0" parent="e1" style="edgeLabel;html=1;fontSize=10;align=center;" value="жалобы, анамнез,&#xa;хронические заболевания" vertex="1">
+          <mxGeometry relative="1" x="-0.7688" y="-24" as="geometry">
+            <mxPoint x="24" y="5" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="p2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=10;exitX=0.541;exitY=1.02;exitDx=0;exitDy=0;entryX=0.534;entryY=-0.015;entryDx=0;entryDy=0;exitPerimeter=0;entryPerimeter=0;" target="d2" value="диагноз, назначения,&#xa;история болезни (врачебная тайна)">
+          <mxGeometry relative="1" x="-0.0221" as="geometry">
+            <mxPoint y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=10;entryX=0.535;entryY=-0.013;entryDx=0;entryDy=0;entryPerimeter=0;" target="d3" value="сохранение файла карты&#xa;(без контроля доступа)">
+          <mxGeometry relative="1" x="-0.1957" y="-1" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="440" y="461" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="note1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;align=left;spacingLeft=6;" value="Меры защиты потока данных о здоровье:&#xa;- тег SPECIAL_CATEGORY (данные о здоровье)&#xa;- шифрование карты at rest и in transit (TLS)&#xa;- доступ только у лечащего врача (RBAC)&#xa;- журналирование каждого открытия карты" vertex="1">
+          <mxGeometry height="90" width="240" x="600" y="226" as="geometry" />
+        </mxCell>
+        <mxCell id="note2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;align=left;spacingLeft=6;" value="Меры защиты D3:&#xa;- запрет хранения мед. карт на общем&#xa;  диске без ограничения доступа&#xa;- перенос в защищённое хранилище&#xa;  с разграничением прав по ролям" vertex="1">
+          <mxGeometry height="90" width="240" x="600" y="511" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
